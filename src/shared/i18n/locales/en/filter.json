@@ -1,1 +1,12 @@
-{}
+{
+	"title": "WinWinTravel frontend test task",
+	"open_filters": "Open Filters",
+	"debug_title": "Current Filter Data (Debug):",
+	"modal": {
+		"title": "Filters",
+		"apply": "Apply",
+		"cancel": "Cancel",
+		"confirm_title": "Confirm changes",
+		"confirm_message": "Are you sure you want to apply these filters?"
+	}
+}
