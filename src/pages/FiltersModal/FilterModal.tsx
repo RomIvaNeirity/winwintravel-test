@@ -6,6 +6,8 @@ import { FilterType } from '@/shared/api/types/Filter/FilterType'
 import { SearchRequestOptions } from '@/shared/api/types/SearchRequest/SearchRequestFilter'
 import { useFilterStore } from '@/shared/store/useFilterStore'
 
+import { ConfirmModal } from '../ConfirmModal/ConfirmModal'
+
 interface FilterModalProps {
 	data: FilterItem[]
 }
@@ -14,6 +16,8 @@ export const FilterModal = ({ data }: FilterModalProps) => {
 	const { t } = useTranslation('filter')
 	const { activeFilters, setFilters, closeModal } = useFilterStore()
 
+	// Стан для відображення другої модалки
+	const [showConfirm, setShowConfirm] = useState(false)
 	const [localFilters, setLocalFilters] =
 		useState<SearchRequestOptions[]>(activeFilters)
 
@@ -52,12 +56,24 @@ export const FilterModal = ({ data }: FilterModalProps) => {
 		})
 	}
 
-	const handleApply = () => {
-		const isConfirmed = window.confirm(t('modal.confirm_message'))
-		if (isConfirmed) {
-			setFilters(localFilters) // зберігаємо в глобальний Zustand стор
-			closeModal()
-		}
+	const handleReset = () => {
+		setLocalFilters([])
+	}
+
+	if (showConfirm) {
+		return (
+			<ConfirmModal
+				onApplyNew={() => {
+					setFilters(localFilters)
+					closeModal()
+				}}
+				onUseOld={() => {
+					setFilters(activeFilters)
+					closeModal()
+				}}
+				onClose={() => setShowConfirm(false)} // Поверне назад до фільтрів при закритті хрестиком
+			/>
+		)
 	}
 
 	return (
@@ -123,21 +139,20 @@ export const FilterModal = ({ data }: FilterModalProps) => {
 					))}
 				</div>
 
-				{/* Футер модалки */}
 				<div className="modal-footer">
 					<button
 						type="button"
-						onClick={closeModal}
-						className="btn-cancel"
-					>
-						{t('modal.cancel')}
-					</button>
-					<button
-						type="button"
-						onClick={handleApply}
+						onClick={() => setShowConfirm(true)}
 						className="btn-apply"
 					>
 						{t('modal.apply')}
+					</button>
+					<button
+						type="button"
+						onClick={handleReset}
+						className="btn-cancel"
+					>
+						{t('modal.cancel')}
 					</button>
 				</div>
 			</div>

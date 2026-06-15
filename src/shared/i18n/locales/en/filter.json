@@ -3,11 +3,16 @@
 	"open_filters": "Open Filters",
 	"debug_title": "Current Filter Data (Debug):",
 	"modal": {
-		"title": "Filters",
+		"title": "Filter",
 		"apply": "Apply",
-		"cancel": "Cancel",
+		"cancel": "Clear all parameters",
 		"confirm_title": "Confirm changes",
 		"confirm_message": "Are you sure you want to apply these filters?"
 	},
-	"error": "Error loading filters from JSON"
+	"error": "Error loading filters from JSON",
+	"confirm_modal": {
+		"confirm_message": "Do you want to apply new filter",
+		"use_old": "Use old filter",
+		"apply_new": "Apply new filter"
+	}
 }

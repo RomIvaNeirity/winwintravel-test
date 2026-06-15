@@ -1,5 +1,5 @@
 .modal-overlay {
-	@apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+	@apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 backdrop-blur;
 }
 
 .modal-body {
@@ -7,14 +7,15 @@
 }
 
 .modal-content {
-	@apply bg-white rounded-2xl shadow-xl w-full max-w-7xl flex flex-col overflow-hidden px-9 py-10 max-h-[calc(100vh-80px)];
+	@apply bg-white rounded-2xl shadow-modal w-full max-w-7xl flex flex-col overflow-hidden px-9 py-10 max-h-[calc(100vh-80px)];
 }
 
 .modal-header {
-	@apply font-inter font-medium text-[40px] pb-6 flex items-center justify-center w-full relative mb-8;
+	@apply font-inter font-medium text-[40px] pb-6 flex items-center justify-center w-full relative mb-8 text-black-grey-500 border-b-2 border-black-grey-200;
+}
 
-	color: var(--black-grey-500, var(--color-gray-800, #1f2937));
-	border-bottom: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+.confirm_message {
+	@apply font-inter font-medium text-[40px] flex items-center justify-center w-full relative mb-30 text-black-grey-500;
 }
 
 .modal-close {
@@ -22,50 +23,63 @@
 }
 
 .filter-section {
-	@apply flex flex-col pb-6 pt-8;
-	border-bottom: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+	@apply flex flex-col pb-6 pt-8 border-b-2 border-black-grey-200 last:border-b-0;
 }
 
 .filter-title {
-	@apply text-lg font-semibold text-gray-800 mb-6;
-	font-family: var(--font-family);
-	font-weight: 500;
-	font-size: 24px;
-	color: var(--black-grey.500);
+	@apply font-inter font-medium text-2xl text-black-grey-500 mb-6;
 }
 
 .options-list {
-	@apply flex flex-row w-full;
-	flex-wrap: wrap;
-	row-gap: 20px;
+	@apply flex flex-row flex-wrap w-full gap-y-5;
 }
 
 .option-item {
-	@apply flex items-center cursor-pointer select-none;
-	min-width: 33%;
+	@apply flex items-center cursor-pointer select-none min-w-[33%];
 }
 
 .checkbox-input {
-	@apply w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer;
+	@apply w-6 h-6 text-blue-600 border-3
+	border-black-grey-500 rounded focus:ring-blue-500 cursor-pointer;
 }
 
 .option-label {
-	@apply text-sm text-gray-700 font-medium ml-4;
-	font-family: var(--font-family);
-	font-weight: 400;
-	font-size: 16px;
-	color: var(--black-grey.500);
+	@apply font-inter font-normal text-base text-black-grey-500 ml-4;
 }
 
 .modal-footer {
-	@apply flex items-center justify-center pt-10;
-	border-top: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+	@apply flex items-center justify-center pt-10 border-t-2 border-black-grey-200
+	relative mt-8;
+}
+
+.confirm-msg-btns {
+	@apply flex items-center justify-center
+	relative;
 }
 
 .btn-cancel {
-	@apply px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors;
+	@apply px-4 py-2 text-primary-100 rounded-lg text-sm font-medium
+	hover:bg-gray-100 transition-colors absolute right-0 top-13
+	underline font-inter;
+}
+
+.btn-apply,
+.btn-apply-confirm {
+	@apply w-46 h-16 px-4 py-2 bg-buttons-brand-200 text-white rounded-lg text-sm
+	font-medium hover:bg-buttons-brand-300 transition-colors font-inter;
 }
 
 .btn-apply {
-	@apply px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors;
+	@apply w-46;
+}
+
+.btn-apply-confirm {
+	@apply w-68
+	rounded-2xl;
+}
+
+.btn-old {
+	@apply w-68 h-16 px-4 py-2 text-black-grey-400 rounded-2xl text-sm
+	font-medium hover:bg-buttons-brand-300 transition-colors font-inter mr-8
+	border-2 border-black-grey-200;
 }
