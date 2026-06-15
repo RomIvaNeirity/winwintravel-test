@@ -1,0 +1,71 @@
+.modal-overlay {
+	@apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+}
+
+.modal-body {
+	@apply flex-1 overflow-y-auto pr-2;
+}
+
+.modal-content {
+	@apply bg-white rounded-2xl shadow-xl w-full max-w-7xl flex flex-col overflow-hidden px-9 py-10 max-h-[calc(100vh-80px)];
+}
+
+.modal-header {
+	@apply font-inter font-medium text-[40px] pb-6 flex items-center justify-center w-full relative mb-8;
+
+	color: var(--black-grey-500, var(--color-gray-800, #1f2937));
+	border-bottom: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+}
+
+.modal-close {
+	@apply w-6 h-6 flex items-center justify-center cursor-pointer absolute right-0 top-4;
+}
+
+.filter-section {
+	@apply flex flex-col pb-6 pt-8;
+	border-bottom: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+}
+
+.filter-title {
+	@apply text-lg font-semibold text-gray-800 mb-6;
+	font-family: var(--font-family);
+	font-weight: 500;
+	font-size: 24px;
+	color: var(--black-grey.500);
+}
+
+.options-list {
+	@apply flex flex-row w-full;
+	flex-wrap: wrap;
+	row-gap: 20px;
+}
+
+.option-item {
+	@apply flex items-center cursor-pointer select-none;
+	min-width: 33%;
+}
+
+.checkbox-input {
+	@apply w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer;
+}
+
+.option-label {
+	@apply text-sm text-gray-700 font-medium ml-4;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 16px;
+	color: var(--black-grey.500);
+}
+
+.modal-footer {
+	@apply flex items-center justify-center pt-10;
+	border-top: 2px solid var(--black-grey-200, var(--color-gray-200, #e5e7eb));
+}
+
+.btn-cancel {
+	@apply px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors;
+}
+
+.btn-apply {
+	@apply px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors;
+}

@@ -1,2 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './pages/FiltersModal/FilterModal.styles.css';
+
+@theme {
+	--font-inter: 'Inter', sans-serif;
+	--font-jakarta: 'Plus Jakarta Sans', sans-serif;
+}

@@ -8,5 +8,6 @@
 		"cancel": "Cancel",
 		"confirm_title": "Confirm changes",
 		"confirm_message": "Are you sure you want to apply these filters?"
-	}
+	},
+	"error": "Error loading filters from JSON"
 }
